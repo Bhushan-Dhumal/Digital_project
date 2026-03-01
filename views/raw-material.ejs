@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Other Raw Material Entry</title>
+
+      <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- YOUR CSS -->
+    <link rel="stylesheet" href="/css/raw-material.css">
+</head>
+
+<body>
+
+<h1>Other Raw Material Entry</h1>
+
+<div class="container-box">
+    <h4 class="section-title">Select Product Details</h4>
+
+    <div class="row g-3">
+        <div class="col-md-4">
+            <label>Type of Product</label>
+            <select id="typeProduct" class="form-control">
+                <option value="">-- Select Type --</option>
+                <option value="Fruits">Fruits</option>
+            </select>
+        </div>
+
+        <div class="col-md-4">
+            <label>Name of Product</label>
+            <select id="nameProduct" class="form-control">
+                <option value="">-- Select Name --</option>
+            </select>
+        </div>
+
+        <div class="col-md-4">
+            <label>Which Product</label>
+            <select id="whichProduct" class="form-control">
+                <option value="">-- Select Option --</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-end mt-3">
+        <button id="showRawBtn" class="btn btn-primary" type="button" disabled>
+            Show Other Raw Materials
+        </button>
+    </div>
+</div>
+
+<div class="container-box">
+    <h2>1. Oil Requirement (Palm Oil)</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>TPD</th>
+            <th>Oil Required (L)</th>
+            <th>Oil Replaced (5%)</th>
+            <th>Total Oil</th>
+            <th>Rate (Rs/L)</th>
+            <th>Total Crores</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td><input id="tpd" type="number"></td>
+            <td><input id="oilRequired" class="readonly" disabled></td>
+            <td><input id="oilReplaced" class="readonly" disabled></td>
+            <td><input id="totalOil" class="readonly" disabled></td>
+            <td><input id="oilRate" type="number" value="65"></td>
+            <td><input id="oilCrores" class="readonly" disabled></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="container-box" id="otherRawBox" style="display:none;">
+    <h2>2. Other Raw Materials</h2>
+    <table id="additivesTable">
+        <thead>
+        <tr>
+            <th>Raw Material</th>
+            <th>Rate (Rs/kg)</th>
+            <th>Percentage (%)</th>
+            <th>Qty (gm/kg)</th>
+            <th>Rs/kg</th>
+            <th>Cr/kg</th>
+            <th>Cr/Ton</th>
+            <th>Cr/Day</th>
+        </tr>
+        </thead>
+        <tbody id="additiveBody"></tbody>
+    </table>
+</div>
+
+<div class="container-box" id="summaryBox" style="display:none;">
+    <h2>3. Summary</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Rupees Required/day (Avg Rate)</th>
+            <th>Rupees in Crores/day</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input id="avgRsPerDay" class="readonly" disabled></td>
+            <td><input id="totalCroresPerDay" class="readonly" disabled></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h2 class="mt-4">4. Final Average (H17 / 10)</h2>
+    <table>
+        <tbody>
+        <tr>
+            <td><input id="finalAvg2" class="readonly" disabled></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="container-box">
+  <div class="d-flex gap-2 justify-content-end">
+    <button id="saveBtn" class="btn btn-success" type="button">Save to MongoDB</button>
+    <button id="historyBtn" class="btn btn-outline-primary" type="button">Show History (Console)</button>
+  </div>
+  <div id="saveMsg" class="mt-2"></div>
+</div>
+
+    <!-- YOUR JS -->
+    <script defer src="/js/raw-material.js"></script>
+
+</body>
+</html>
